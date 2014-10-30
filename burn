@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+burn() {
+  local file=${1:-}
+  local port=${2:-}
+  local baud=115200
+  local freq=12000 # oscillator kHz
+
+  if [ -z "$file" ]; then usage; fi
+  if [ -z "$port" ]; then usage; fi
+
+  lpc21isp -verify "$file" "$port" "$baud" "$freq"
+}
+
+usage() {
+  echo >/dev/stderr "Usage: $0 <filename> <port>"
+  echo >/dev/stderr "   eg: $0 blinky.hex /dev/cu.usbserial-DN002T70"
+  exit 1
+}
+
+if [ $# -eq 2 ]; then
+  burn "$1" "$2"
+else
+  usage
+fi
