@@ -5,5 +5,8 @@ LPC810 test
 
 This is some test code and notes relating to it.
 
+Official pre-built arm-none-eabi GCC toolchain available at https://launchpad.net/gcc-arm-embedded
+
+
 [LPC810]: http://www.nxp.com/products/microcontrollers/cortex_m0_m0/lpc800/LPC810M021FN8.html
 [Cortex-M0+]: http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M0.2B
